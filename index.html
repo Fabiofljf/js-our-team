@@ -37,20 +37,7 @@
     <main id="site_main">
         <section id="team">
             <div class="container">
-                <div class="row row-cols-3 g-3">
-                    <div class="col"></div>
-                    <!-- /.col -->
-                    <div class="col"></div>
-                    <!-- /.col -->
-                    <div class="col"></div>
-                    <!-- /.col -->
-                    <div class="col"></div>
-                    <!-- /.col -->
-                    <div class="col"></div>
-                    <!-- /.col -->
-                    <div class="col"></div>
-                    <!-- /.col -->
-                </div>
+                <div id="row_cards" class="row row-cols-3 g-3"></div>
             </div>
         </section>
 
@@ -64,13 +51,14 @@
                         <!-- /Nome -->
 
                         <label for="text">Ruolo</label>
-                        <input type="text" value="">
+                        <input type="text" value="" id="add_role">
                         <!-- /Role -->
 
                         <label for="text">Immagine</label>
-                        <input type="text" value="">
+                        <input type="text" value="" id="add_img">
+                        <!-- /Img -->
 
-                        <button type="submit">Add</button>
+                        <button type="submit" id="btn_add">Add</button>
                     </div>
                 </div>
             </div>

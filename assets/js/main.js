@@ -82,12 +82,17 @@ for (let i = 0; i < team.length; i++) {
 
 // 4. Organizzare i singoli membri in card/schede.
 
-const cols = document.querySelectorAll('.col') //Richiamo il nodo principale della DOM.
+const rowElement = document.getElementById('row_cards') //Richiamo il nodo principale della DOM.
     //console.log(cols);
 
-for (let i = 0; i < cols.length; i++) {
-    const col = cols[i];
-    //console.log(col); // Richiamo singolo nodo.
+for (let i = 0; i < team.length; i++) {
+    const person = team[i];
+
+    const DIVele = document.createElement('div');
+    DIVele.classList.add('col');
+    //console.log(rowElement);
+    rowElement.append(DIVele);
+    //console.log(rowElement);
 
     const divElement = document.createElement('div'); //Creo sotto-div.
     //console.log(divElement);
@@ -95,17 +100,18 @@ for (let i = 0; i < cols.length; i++) {
     //console.log(divElement);
     divElement.style.width = "18rem";
     //console.log(divElement);
-    cols[i].append(divElement); // Appendo div + classe e style.
-    //console.log(cols[i]);
+    DIVele.append(divElement); // Appendo div + classe e style.
+    //console.log(DIVele);
 
-    const person = team[i];
     //console.log(person); // Singole persone all'interno dell'array. Complete di tutte le info.
 
     const imgElement = document.createElement('img'); // Creo i sotto-nodi di div.
     imgElement.classList.add('card-img-top'); //Appendo classe boostrap.
     //console.log(imgElement);
     imgElement.src = './img/' + person.image; //Aggiungo il percorso della cartella.
+    //console.log(person.image);
     divElement.append(imgElement); // Appendo img a div.
+    //console.log(divElement);
 
     const divElement2 = document.createElement('div'); //Creo sotto-div.
     //console.log(divElement2);
@@ -125,20 +131,76 @@ for (let i = 0; i < cols.length; i++) {
     pElement.innerHTML += person.role;
     //console.log(pElement);
     divElement2.append(pElement);
-
-
-
-    // const person = team[i];
-    // //console.log(person); // Singole persone all'interno dell'array. Complete di tutte le info.
-    // //console.log(imgElement);
-    // listItem.append(imgElement); //Appendo img ai li.
-    // listItem.innerHTML += person.name + ", " + person.role //Aggiungo i dati (nome e ruolo).
-    // unorderList.append(listItem); //Appendo i nodi nell'HTML.
 }
+
 
 
 // ADD NEW MEMBER
 
-// 1. far scrivere all'utente un nome e memorizzarlo in una variabile.
-const userName = document.getElementById('add_name').value;
-console.log(userName);
+
+document.getElementById('btn_add').addEventListener('click', function() {
+
+    // 1. far scrivere all'utente un nome e memorizzarlo in una variabile.
+    const userName = document.getElementById('add_name').value;
+    //console.log(userName);
+
+    // 2. far scrivere all'utente un ruolo e memorizzarlo in una variabile.
+    const userRole = document.getElementById('add_role').value;
+
+    // 3. far inserire il link di una foto
+    const userImg = document.getElementById('add_img').value;
+
+    // 4. Inserire questi dati nelle rispettive proprietà di un oggetto che pusherò nell'array team.
+    const variabileAdd = {
+        name: userName,
+        role: userRole,
+        image: userImg,
+    }
+
+    // 5. pusho l'oggetto nell'array.
+    team.push(variabileAdd);
+    console.log(team);
+
+    // 6. Ripeto il ciclo
+
+    const rowElement = document.getElementById('row_cards') //Richiamo il nodo principale della DOM.
+
+    for (let i = 6; i < team.length; i++) {
+        const person = team[i];
+
+        //Primo div
+        const DIVele = document.createElement('div');
+        DIVele.classList.add('col');
+        rowElement.append(DIVele);
+
+        //Secondo div
+        const divElement = document.createElement('div'); //Creo sotto-div.
+        divElement.classList.add('card'); //Aggiungo classe bootstrap.
+        divElement.style.width = "18rem";
+        DIVele.append(divElement); // Appendo div + classe e style.
+
+        //img
+        const imgElement = document.createElement('img'); // Creo i sotto-nodi di div.
+        imgElement.classList.add('card-img-top'); //Appendo classe boostrap.
+        imgElement.src = person.image; //Aggiungo il percorso della cartella.
+        divElement.append(imgElement); // Appendo img a div.
+
+        //Terzo div
+        const divElement2 = document.createElement('div'); //Creo sotto-div.
+        divElement2.classList.add('card-body'); //Aggiungo classe bootstrap.
+        divElement.append(divElement2);
+
+        //h5 - nome
+        h5Element = document.createElement('h5');
+        h5Element.classList.add('card-title');
+        h5Element.innerHTML += person.name;
+        divElement2.append(h5Element);
+
+        //p - ruolo
+        pElement = document.createElement('p');
+        pElement.classList.add('card-text');
+        pElement.innerHTML += person.role;
+        divElement2.append(pElement);
+    }
+
+})
