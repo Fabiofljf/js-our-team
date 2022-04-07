@@ -95,10 +95,11 @@ for (let i = 0; i < cols.length; i++) {
     //console.log(divElement);
     divElement.style.width = "18rem";
     //console.log(divElement);
-    col.append(divElement); // Appendo div + classe e style.
+    cols[i].append(divElement); // Appendo div + classe e style.
+    console.log(cols[i]);
 
     const person = team[i];
-    console.log(person); // Singole persone all'interno dell'array. Complete di tutte le info.
+    //console.log(person); // Singole persone all'interno dell'array. Complete di tutte le info.
 
     const imgElement = document.createElement('img'); // Creo i sotto-nodi di div.
     imgElement.classList.add('card-img-top'); //Appendo classe boostrap.
@@ -109,7 +110,22 @@ for (let i = 0; i < cols.length; i++) {
     const divElement2 = document.createElement('div'); //Creo sotto-div.
     //console.log(divElement2);
     divElement2.classList.add('card-body'); //Aggiungo classe bootstrap.
-    console.log(divElement2);
+    //console.log(divElement2);
+    divElement.append(divElement2);
+    //console.log(divElement);
+
+    h5Element = document.createElement('h5');
+    h5Element.classList.add('card-title');
+    h5Element.innerHTML += person.name;
+    //console.log(h5Element);
+    divElement2.append(h5Element);
+
+    pElement = document.createElement('p');
+    pElement.classList.add('card-text');
+    pElement.innerHTML += person.role;
+    //console.log(pElement);
+    divElement2.append(pElement);
+
 
 
     // const person = team[i];
