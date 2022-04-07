@@ -87,7 +87,7 @@ const cols = document.querySelectorAll('.col') //Richiamo il nodo principale del
 
 for (let i = 0; i < cols.length; i++) {
     const col = cols[i];
-    console.log(col); // Richiamo singolo nodo.
+    //console.log(col); // Richiamo singolo nodo.
 
     const divElement = document.createElement('div'); //Creo sotto-div.
     //console.log(divElement);
@@ -96,7 +96,7 @@ for (let i = 0; i < cols.length; i++) {
     divElement.style.width = "18rem";
     //console.log(divElement);
     cols[i].append(divElement); // Appendo div + classe e style.
-    console.log(cols[i]);
+    //console.log(cols[i]);
 
     const person = team[i];
     //console.log(person); // Singole persone all'interno dell'array. Complete di tutte le info.
@@ -135,3 +135,10 @@ for (let i = 0; i < cols.length; i++) {
     // listItem.innerHTML += person.name + ", " + person.role //Aggiungo i dati (nome e ruolo).
     // unorderList.append(listItem); //Appendo i nodi nell'HTML.
 }
+
+
+// ADD NEW MEMBER
+
+// 1. far scrivere all'utente un nome e memorizzarlo in una variabile.
+const userName = document.getElementById('add_name').value;
+console.log(userName);
