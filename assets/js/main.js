@@ -35,7 +35,6 @@ const team = [{
 // console.log(team.name); //Undefined.
 
 
-
 /* 1. Stampare su console le informazioni di nome, ruolo e la stringa della foto.
 for (let i = 0; i < team.length; i++) {
     const person = team[i];
@@ -62,9 +61,11 @@ for (let i = 0; i < team.length; i++) {
 */
 
 
+
+/* 3. Trasformare la stringa foto in una immagine effettiva.
+
 const unorderList = document.getElementById('user') //Richiamo il nodo principale della DOM.
 
-// 3. Trasformare la stringa foto in una immagine effettiva.
 for (let i = 0; i < team.length; i++) {
     const person = team[i];
     //console.log(person); // Singole persone all'interno dell'array. Complete di tutte le info.
@@ -76,4 +77,45 @@ for (let i = 0; i < team.length; i++) {
     listItem.append(imgElement); //Appendo img ai li.
     listItem.innerHTML += person.name + ", " + person.role //Aggiungo i dati (nome e ruolo).
     unorderList.append(listItem); //Appendo i nodi nell'HTML.
+}
+*/
+
+// 4. Organizzare i singoli membri in card/schede.
+
+const cols = document.querySelectorAll('.col') //Richiamo il nodo principale della DOM.
+    //console.log(cols);
+
+for (let i = 0; i < cols.length; i++) {
+    const col = cols[i];
+    console.log(col); // Richiamo singolo nodo.
+
+    const divElement = document.createElement('div'); //Creo sotto-div.
+    //console.log(divElement);
+    divElement.classList.add('card'); //Aggiungo classe bootstrap.
+    //console.log(divElement);
+    divElement.style.width = "18rem";
+    //console.log(divElement);
+    col.append(divElement); // Appendo div + classe e style.
+
+    const person = team[i];
+    console.log(person); // Singole persone all'interno dell'array. Complete di tutte le info.
+
+    const imgElement = document.createElement('img'); // Creo i sotto-nodi di div.
+    imgElement.classList.add('card-img-top'); //Appendo classe boostrap.
+    //console.log(imgElement);
+    imgElement.src = './img/' + person.image; //Aggiungo il percorso della cartella.
+    divElement.append(imgElement); // Appendo img a div.
+
+    const divElement2 = document.createElement('div'); //Creo sotto-div.
+    //console.log(divElement2);
+    divElement2.classList.add('card-body'); //Aggiungo classe bootstrap.
+    console.log(divElement2);
+
+
+    // const person = team[i];
+    // //console.log(person); // Singole persone all'interno dell'array. Complete di tutte le info.
+    // //console.log(imgElement);
+    // listItem.append(imgElement); //Appendo img ai li.
+    // listItem.innerHTML += person.name + ", " + person.role //Aggiungo i dati (nome e ruolo).
+    // unorderList.append(listItem); //Appendo i nodi nell'HTML.
 }
