@@ -87,29 +87,35 @@ const rowElement = document.getElementById('row_cards') //Richiamo il nodo princ
 for (let i = 0; i < team.length; i++) {
     const person = team[i];
 
+    //Div - Colonna
     const DIVele = document.createElement('div');
     DIVele.classList.add('col');
     rowElement.append(DIVele);
 
+    //Div - CARD
     const divElement = document.createElement('div'); //Creo sotto-div.
     divElement.classList.add('card'); //Aggiungo classe bootstrap.
     divElement.style.width = "18rem";
     DIVele.append(divElement); // Appendo div + classe e style.
 
+    //Img card
     const imgElement = document.createElement('img'); // Creo i sotto-nodi di div.
     imgElement.classList.add('card-img-top'); //Appendo classe boostrap.
     imgElement.src = './img/' + person.image; //Aggiungo il percorso della cartella.
     divElement.append(imgElement); // Appendo img a div.
 
+    //DIV for TEXT-CARD
     const divElement2 = document.createElement('div'); //Creo sotto-div.
     divElement2.classList.add('card-body'); //Aggiungo classe bootstrap.
     divElement.append(divElement2);
 
+    //H5 - NOME
     h5Element = document.createElement('h5');
     h5Element.classList.add('card-title');
     h5Element.innerHTML += person.name;
     divElement2.append(h5Element);
 
+    //P - Ruolo
     pElement = document.createElement('p');
     pElement.classList.add('card-text');
     pElement.innerHTML += person.role;
@@ -148,40 +154,48 @@ document.getElementById('btn_add').addEventListener('click', function() {
 
     const rowElement = document.getElementById('row_cards') //Richiamo il nodo principale della DOM.
 
+    for (let i = 0; i < team.length; i++) {
+        const person = team[i];
 
-    //Primo div
-    const DIVele = document.createElement('div');
-    DIVele.classList.add('col');
-    rowElement.append(DIVele);
+        console.log();
+        console.log(team);
+        console.log(person.name);
 
-    //Secondo div
-    const divElement = document.createElement('div'); //Creo sotto-div.
-    divElement.classList.add('card'); //Aggiungo classe bootstrap.
-    divElement.style.width = "18rem";
-    DIVele.append(divElement); // Appendo div + classe e style.
+        if (!team.includes(person.name)) {
+            //Div - Colonna
+            const DIVele = document.createElement('div');
+            DIVele.classList.add('col');
+            rowElement.append(DIVele);
 
-    //img
-    const imgElement = document.createElement('img'); // Creo i sotto-nodi di div.
-    imgElement.classList.add('card-img-top'); //Appendo classe boostrap.
-    imgElement.src = person.image; //Aggiungo il percorso della cartella.
-    divElement.append(imgElement); // Appendo img a div.
+            //Div - CARD
+            const divElement = document.createElement('div'); //Creo sotto-div.
+            divElement.classList.add('card'); //Aggiungo classe bootstrap.
+            divElement.style.width = "18rem";
+            DIVele.append(divElement); // Appendo div + classe e style.
 
-    //Terzo div
-    const divElement2 = document.createElement('div'); //Creo sotto-div.
-    divElement2.classList.add('card-body'); //Aggiungo classe bootstrap.
-    divElement.append(divElement2);
+            //Img card
+            const imgElement = document.createElement('img'); // Creo i sotto-nodi di div.
+            imgElement.classList.add('card-img-top'); //Appendo classe boostrap.
+            imgElement.src = './img/' + person.image; //Aggiungo il percorso della cartella.
+            divElement.append(imgElement); // Appendo img a div.
 
-    //h5 - nome
-    h5Element = document.createElement('h5');
-    h5Element.classList.add('card-title');
-    h5Element.innerHTML += person.name;
-    divElement2.append(h5Element);
+            //DIV for TEXT-CARD
+            const divElement2 = document.createElement('div'); //Creo sotto-div.
+            divElement2.classList.add('card-body'); //Aggiungo classe bootstrap.
+            divElement.append(divElement2);
 
-    //p - ruolo
-    pElement = document.createElement('p');
-    pElement.classList.add('card-text');
-    pElement.innerHTML += person.role;
-    divElement2.append(pElement);
+            //H5 - NOME
+            h5Element = document.createElement('h5');
+            h5Element.classList.add('card-title');
+            h5Element.innerHTML += person.name;
+            divElement2.append(h5Element);
 
+            //P - Ruolo
+            pElement = document.createElement('p');
+            pElement.classList.add('card-text');
+            pElement.innerHTML += person.role;
+            divElement2.append(pElement);
+        }
+    }
 
 })
