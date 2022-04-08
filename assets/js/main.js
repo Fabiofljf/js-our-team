@@ -154,48 +154,44 @@ document.getElementById('btn_add').addEventListener('click', function() {
 
     const rowElement = document.getElementById('row_cards') //Richiamo il nodo principale della DOM.
 
-    for (let i = 0; i < team.length; i++) {
-        const person = team[i];
 
-        console.log();
-        console.log(team);
-        console.log(person.name);
+    //console.log();
+    //console.log(team);
+    //console.log(person.name);
 
-        if (!team.includes(person.name)) {
-            //Div - Colonna
-            const DIVele = document.createElement('div');
-            DIVele.classList.add('col');
-            rowElement.append(DIVele);
+    //Div - Colonna
+    const DIVele = document.createElement('div');
+    DIVele.classList.add('col');
+    rowElement.append(DIVele);
 
-            //Div - CARD
-            const divElement = document.createElement('div'); //Creo sotto-div.
-            divElement.classList.add('card'); //Aggiungo classe bootstrap.
-            divElement.style.width = "18rem";
-            DIVele.append(divElement); // Appendo div + classe e style.
+    //Div - CARD
+    const divElement = document.createElement('div'); //Creo sotto-div.
+    divElement.classList.add('card'); //Aggiungo classe bootstrap.
+    divElement.style.width = "18rem";
+    DIVele.append(divElement); // Appendo div + classe e style.
 
-            //Img card
-            const imgElement = document.createElement('img'); // Creo i sotto-nodi di div.
-            imgElement.classList.add('card-img-top'); //Appendo classe boostrap.
-            imgElement.src = './img/' + person.image; //Aggiungo il percorso della cartella.
-            divElement.append(imgElement); // Appendo img a div.
+    //Img card
+    const imgElement = document.createElement('img'); // Creo i sotto-nodi di div.
+    imgElement.classList.add('card-img-top'); //Appendo classe boostrap.
+    imgElement.src = userImg; //Aggiungo il percorso della cartella.
+    divElement.append(imgElement); // Appendo img a div.
 
-            //DIV for TEXT-CARD
-            const divElement2 = document.createElement('div'); //Creo sotto-div.
-            divElement2.classList.add('card-body'); //Aggiungo classe bootstrap.
-            divElement.append(divElement2);
+    //DIV for TEXT-CARD
+    const divElement2 = document.createElement('div'); //Creo sotto-div.
+    divElement2.classList.add('card-body'); //Aggiungo classe bootstrap.
+    divElement.append(divElement2);
 
-            //H5 - NOME
-            h5Element = document.createElement('h5');
-            h5Element.classList.add('card-title');
-            h5Element.innerHTML += person.name;
-            divElement2.append(h5Element);
+    //H5 - NOME
+    h5Element = document.createElement('h5');
+    h5Element.classList.add('card-title');
+    h5Element.innerHTML += userName;
+    divElement2.append(h5Element);
 
-            //P - Ruolo
-            pElement = document.createElement('p');
-            pElement.classList.add('card-text');
-            pElement.innerHTML += person.role;
-            divElement2.append(pElement);
-        }
-    }
+    //P - Ruolo
+    pElement = document.createElement('p');
+    pElement.classList.add('card-text');
+    pElement.innerHTML += userRole;
+    divElement2.append(pElement);
+
 
 })
